@@ -90,7 +90,7 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${transparent ? 'bg-transparent' : 'bg-navy shadow-lg'}`}>
-      <div className="w-full px-10 flex items-center justify-between py-5">
+      <div className="relative w-full px-10 flex items-center justify-between py-5">
 
         {/* Logo — far left */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
@@ -98,8 +98,8 @@ export default function Navbar() {
           <span className="font-heading text-3xl lg:text-5xl font-light text-white">Realty</span>
         </Link>
 
-        {/* Nav tabs — desktop only, centered between logo and phone */}
-        <nav className="hidden lg:flex items-center gap-7">
+        {/* Nav tabs — perfectly centered on the page */}
+        <nav className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
           <Link to="/" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
           <Link to="/listings" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
           <BuyDropdown pathname={pathname} />
