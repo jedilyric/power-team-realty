@@ -19,18 +19,18 @@ function FAQ({ q, a }) {
         <span className="font-semibold text-navy">{q}</span>
         <ChevronDown size={18} className={`text-gold transition-transform shrink-0 ml-4 ${open ? 'rotate-180' : ''}`} />
       </button>
-      {open && <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed bg-white">{a}</div>}
+      {open && <div className="px-5 pb-5 text-gray-600 text-base leading-relaxed bg-white">{a}</div>}
     </div>
   )
 }
 
 export default function Buy() {
   return (
-    <main className="pt-24 lg:pt-44">
+    <main className="pt-24 lg:pt-44 bg-navy">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="font-heading text-5xl font-bold text-white mb-4">Buy a Home in Arizona</h1>
-          <p className="text-white/70 text-lg max-w-xl mx-auto">We make the homebuying journey clear, confident, and exciting from start to finish.</p>
+          <h1 className="font-heading text-6xl font-bold text-white mb-4">Buy a Home in Arizona</h1>
+          <p className="text-white/70 text-xl max-w-xl mx-auto">We make the homebuying journey clear, confident, and exciting from start to finish.</p>
         </motion.div>
       </section>
 
@@ -48,8 +48,8 @@ export default function Buy() {
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="card p-8 text-center relative">
                 <div className="text-5xl font-bold text-surface mb-4 font-heading absolute top-4 right-4 leading-none">{item.step}</div>
                 <div className="flex justify-center mb-4 relative z-10">{item.icon}</div>
-                <h3 className="font-heading text-xl text-navy font-bold mb-3 relative z-10">{item.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed relative z-10">{item.desc}</p>
+                <h3 className="font-heading text-2xl text-navy font-bold mb-3 relative z-10">{item.title}</h3>
+                <p className="text-gray-500 text-base leading-relaxed relative z-10">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -67,8 +67,8 @@ export default function Buy() {
       </section>
 
       <section className="py-20 px-6 bg-navy text-center">
-        <h2 className="font-heading text-4xl font-bold text-white mb-4">Start Your Search Today</h2>
-        <p className="text-white/70 text-lg mb-8">Browse active listings or contact us to get started with a personalized home search.</p>
+        <h2 className="font-heading text-5xl font-bold text-white mb-4">Start Your Search Today</h2>
+        <p className="text-white/70 text-xl mb-8">Browse active listings or contact us to get started with a personalized home search.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/listings" className="btn-primary px-10 py-4">Browse Homes</Link>
           <Link to="/contact" className="btn-outline px-10 py-4">Talk to an Agent</Link>

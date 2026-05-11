@@ -92,7 +92,7 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${transparent ? 'bg-transparent' : 'bg-navy shadow-lg'}`}>
 
       {/* Row 1: Logo + Phone */}
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between py-4">
+      <div className="w-full px-10 flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2">
           <span className="font-heading text-3xl lg:text-5xl font-bold text-gold">Power Team</span>
           <span className="font-heading text-3xl lg:text-5xl font-light text-white">Realty</span>

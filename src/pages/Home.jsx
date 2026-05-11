@@ -59,8 +59,8 @@ function TestimonialCarousel() {
         {Array(t.rating).fill(0).map((_, i) => <Star key={i} size={20} className="fill-gold text-gold" />)}
       </div>
 
-      {/* Arrows sit beside the quote text */}
-      <div className="relative">
+      {/* Arrows fixed beside quote — min-height prevents layout shift */}
+      <div className="relative min-h-[10rem] flex items-center justify-center">
         <button
           onClick={prev}
           aria-label="Previous"
@@ -69,7 +69,7 @@ function TestimonialCarousel() {
           <ChevronLeft size={24} />
         </button>
 
-        <motion.p key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 text-lg leading-relaxed italic">
+        <motion.p key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 text-xl leading-relaxed italic">
           "{t.text}"
         </motion.p>
 
@@ -82,8 +82,8 @@ function TestimonialCarousel() {
         </button>
       </div>
 
-      <p className="font-semibold text-navy mt-6">{t.name}</p>
-      <p className="text-gray-400 text-sm">{t.city}</p>
+      <p className="font-semibold text-navy text-lg mt-6">{t.name}</p>
+      <p className="text-gray-400 text-base">{t.city}</p>
       <div className="flex justify-center gap-2 mt-6">
         {testimonials.map((_, i) => (
           <button key={i} onClick={() => go(i)}
@@ -142,13 +142,13 @@ export default function Home() {
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-36 lg:pt-44">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="inline-block bg-gold text-navy text-sm font-bold px-6 py-2 rounded-full mb-6 tracking-wider shadow-lg">
+            <span className="inline-block bg-gold text-navy text-base font-bold px-6 py-2 rounded-full mb-6 tracking-wider shadow-lg">
               TOP 1% OF ARIZONA REAL ESTATE AGENTS
             </span>
-            <h1 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="font-heading text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Find Your Place<br />in <span className="text-gold">Arizona</span>
             </h1>
-            <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
+            <p className="text-white/80 text-2xl mb-10 max-w-2xl mx-auto">
               Trusted by hundreds of buyers and sellers across the Valley and High Country. Bryan & Jamie Powers — Your Arizona Home Experts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -203,10 +203,10 @@ export default function Home() {
             { value: 15, suffix: '+', label: 'Years Experience' },
           ].map((stat, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}>
-              <div className="font-heading text-4xl md:text-5xl font-bold text-gold mb-2">
+              <div className="font-heading text-5xl md:text-6xl font-bold text-gold mb-2">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-navy font-semibold">{stat.label}</div>
+              <div className="text-navy font-semibold text-lg">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -257,9 +257,9 @@ export default function Home() {
               <motion.div key={i} initial={{ opacity: 0, x: i === 0 ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="card p-8 flex flex-col md:flex-row gap-6 items-center md:items-start">
                 <img src={agent.image} alt={agent.name} className="w-28 h-28 rounded-full object-cover border-4 border-gold shrink-0" />
                 <div>
-                  <h3 className="font-heading text-2xl text-navy font-bold mb-1">{agent.name}</h3>
-                  <p className="text-gold font-medium text-sm mb-3 tracking-wide">{agent.role}</p>
-                  <p className="text-gray-600 leading-relaxed text-sm">{agent.bio}</p>
+                  <h3 className="font-heading text-3xl text-navy font-bold mb-1">{agent.name}</h3>
+                  <p className="text-gold font-medium text-base mb-3 tracking-wide">{agent.role}</p>
+                  <p className="text-gray-600 leading-relaxed text-base">{agent.bio}</p>
                 </div>
               </motion.div>
             ))}
@@ -278,7 +278,7 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {['Chandler', 'Chino Valley', 'Dewey', 'Gilbert', 'Mayer', 'Mesa', 'Phoenix', 'Prescott', 'Prescott Valley', 'Queen Creek', 'Tempe', 'Scottsdale'].map((city, i) => (
               <motion.div key={city} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.05 }} viewport={{ once: true }}>
-                <Link to="/listings" className="block bg-white border border-surface hover:border-gold text-navy font-semibold py-4 px-3 rounded-xl text-sm text-center transition-all hover:shadow-md hover:text-gold">
+                <Link to="/listings" className="block bg-white border border-surface hover:border-gold text-navy font-semibold py-4 px-3 rounded-xl text-base text-center transition-all hover:shadow-md hover:text-gold">
                   {city}
                 </Link>
               </motion.div>
@@ -290,9 +290,9 @@ export default function Home() {
       {/* HOME VALUATION CTA */}
       <section className="py-20 px-6 bg-navy">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block bg-gold/20 border border-gold/40 text-gold text-sm font-semibold px-4 py-1.5 rounded-full mb-6">FREE HOME VALUATION</span>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">What's Your Home Worth?</h2>
-          <p className="text-white/70 text-lg mb-10">Get a free, no-obligation market analysis from Arizona's top-rated team.</p>
+          <span className="inline-block bg-gold/20 border border-gold/40 text-gold text-base font-semibold px-4 py-1.5 rounded-full mb-6">FREE HOME VALUATION</span>
+          <h2 className="font-heading text-5xl md:text-6xl font-bold text-white mb-4">What's Your Home Worth?</h2>
+          <p className="text-white/70 text-xl mb-10">Get a free, no-obligation market analysis from Arizona's top-rated team.</p>
           <div className="bg-white rounded-2xl p-8">
             <ValuationCTA />
           </div>
@@ -322,8 +322,8 @@ export default function Home() {
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="card p-8 text-center">
                 <div className="flex justify-center mb-4">{item.icon}</div>
-                <h3 className="font-heading text-xl text-navy font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-heading text-2xl text-navy font-bold mb-3">{item.title}</h3>
+                <p className="text-gray-500 text-base leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -333,8 +333,8 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="py-20 px-6 bg-gold">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-4xl font-bold text-white mb-4">Ready to Make a Move?</h2>
-          <p className="text-white/90 text-lg mb-8">Whether you're buying, selling, or just exploring — we'd love to hear from you.</p>
+          <h2 className="font-heading text-5xl font-bold text-white mb-4">Ready to Make a Move?</h2>
+          <p className="text-white/90 text-xl mb-8">Whether you're buying, selling, or just exploring — we'd love to hear from you.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="bg-white text-gold font-bold px-10 py-4 rounded-full hover:bg-navy hover:text-white transition-all duration-300">Contact Us Today</Link>
             <a href="tel:9288998945" className="border-2 border-white text-white font-bold px-10 py-4 rounded-full hover:bg-white hover:text-gold transition-all duration-300">Call 928-899-8945</a>

@@ -24,11 +24,11 @@ export default function HomeValuation() {
   )
 
   return (
-    <main className="pt-24 lg:pt-44">
+    <main className="pt-24 lg:pt-44 bg-navy">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="font-heading text-5xl font-bold text-white mb-4">Free Home Valuation</h1>
-          <p className="text-white/70 text-lg max-w-xl mx-auto">Find out what your Arizona home is worth in today's market — free, fast, and no obligation.</p>
+          <h1 className="font-heading text-6xl font-bold text-white mb-4">Free Home Valuation</h1>
+          <p className="text-white/70 text-xl max-w-xl mx-auto">Find out what your Arizona home is worth in today's market — free, fast, and no obligation.</p>
         </motion.div>
       </section>
 
@@ -38,7 +38,7 @@ export default function HomeValuation() {
             {[1, 2, 3].map(s => (
               <div key={s} className="flex-1">
                 <div className={`h-2 rounded-full transition-all ${step >= s ? 'bg-gold' : 'bg-gray-200'}`} />
-                <p className={`text-sm mt-1 font-medium ${step >= s ? 'text-gold' : 'text-gray-400'}`}>
+                <p className={`text-base mt-1 font-medium ${step >= s ? 'text-gold' : 'text-gray-400'}`}>
                   {['Property Address', 'Home Details', 'Your Info'][s - 1]}
                 </p>
               </div>
@@ -63,25 +63,25 @@ export default function HomeValuation() {
                   <h2 className="font-heading text-2xl text-navy font-bold mb-6">Tell us about your home</h2>
                   <div className="grid grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-1">Bedrooms</label>
+                      <label className="block text-base font-medium mb-1">Bedrooms</label>
                       <input name="beds" value={form.beds} onChange={handleChange} placeholder="3" className="input-field" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Bathrooms</label>
+                      <label className="block text-base font-medium mb-1">Bathrooms</label>
                       <input name="baths" value={form.baths} onChange={handleChange} placeholder="2" className="input-field" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Sq. Footage</label>
+                      <label className="block text-base font-medium mb-1">Sq. Footage</label>
                       <input name="sqft" value={form.sqft} onChange={handleChange} placeholder="1800" className="input-field" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-1">Year Built</label>
+                      <label className="block text-base font-medium mb-1">Year Built</label>
                       <input name="yearBuilt" value={form.yearBuilt} onChange={handleChange} placeholder="2005" className="input-field" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1">Condition</label>
+                      <label className="block text-base font-medium mb-1">Condition</label>
                       <select name="condition" value={form.condition} onChange={handleChange} className="input-field">
                         <option>Excellent</option>
                         <option>Good</option>
@@ -103,7 +103,7 @@ export default function HomeValuation() {
                   <input name="email" type="email" required value={form.email} onChange={handleChange} placeholder="Email Address" className="input-field" />
                   <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number (optional)" className="input-field" />
                   {error && <p className="text-red-500 text-sm">{error}</p>}
-                  <p className="text-sm text-gray-400">By submitting, you agree to be contacted by Power Team Realty. We respect your privacy.</p>
+                  <p className="text-base text-gray-400">By submitting, you agree to be contacted by Power Team Realty. We respect your privacy.</p>
                   <div className="flex gap-3">
                     <button type="button" onClick={() => setStep(2)} className="btn-navy flex-1 py-3">← Back</button>
                     <button type="submit" disabled={loading} className="btn-primary flex-1 py-3 flex items-center justify-center gap-2">

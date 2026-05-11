@@ -16,8 +16,8 @@ function ValuationForm() {
   if (success) return (
     <div className="text-center py-8">
       <CheckCircle size={48} className="text-gold mx-auto mb-3" />
-      <h3 className="font-heading text-2xl text-navy font-bold mb-2">Request Received!</h3>
-      <p className="text-gray-500">Bryan & Jamie will send your free home valuation within 24 hours.</p>
+      <h3 className="font-heading text-3xl text-navy font-bold mb-2">Request Received!</h3>
+      <p className="text-gray-500 text-lg">Bryan & Jamie will send your free home valuation within 24 hours.</p>
     </div>
   )
   return (
@@ -29,7 +29,7 @@ function ValuationForm() {
       </div>
       {step === 1 && (
         <>
-          <h3 className="font-heading text-xl text-navy font-semibold mb-4">Step 1: Property Address</h3>
+          <h3 className="font-heading text-2xl text-navy font-semibold mb-4">Step 1: Property Address</h3>
           <input name="address" required value={form.address} onChange={handleChange} placeholder="Street Address" className="input-field" />
           <input name="city" required value={form.city} onChange={handleChange} placeholder="City" className="input-field" />
           <button type="button" onClick={() => form.address && form.city && setStep(2)} className="btn-primary w-full">Next →</button>
@@ -37,7 +37,7 @@ function ValuationForm() {
       )}
       {step === 2 && (
         <>
-          <h3 className="font-heading text-xl text-navy font-semibold mb-4">Step 2: Home Details</h3>
+          <h3 className="font-heading text-2xl text-navy font-semibold mb-4">Step 2: Home Details</h3>
           <div className="grid grid-cols-3 gap-3">
             <input name="beds" value={form.beds} onChange={handleChange} placeholder="Beds" className="input-field" />
             <input name="baths" value={form.baths} onChange={handleChange} placeholder="Baths" className="input-field" />
@@ -51,7 +51,7 @@ function ValuationForm() {
       )}
       {step === 3 && (
         <>
-          <h3 className="font-heading text-xl text-navy font-semibold mb-4">Step 3: Your Contact Info</h3>
+          <h3 className="font-heading text-2xl text-navy font-semibold mb-4">Step 3: Your Contact Info</h3>
           <input name="name" required value={form.name} onChange={handleChange} placeholder="Full Name" className="input-field" />
           <input name="email" type="email" required value={form.email} onChange={handleChange} placeholder="Email Address" className="input-field" />
           <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number" className="input-field" />
@@ -70,11 +70,11 @@ function ValuationForm() {
 
 export default function Sell() {
   return (
-    <main className="pt-24 lg:pt-44">
+    <main className="pt-24 lg:pt-44 bg-navy">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="font-heading text-5xl font-bold text-white mb-4">Sell Your Arizona Home</h1>
-          <p className="text-white/70 text-lg max-w-xl mx-auto">Get top dollar with The Power Team's proven marketing strategy and expert negotiation.</p>
+          <h1 className="font-heading text-6xl font-bold text-white mb-4">Sell Your Arizona Home</h1>
+          <p className="text-white/70 text-xl max-w-xl mx-auto">Get top dollar with The Power Team's proven marketing strategy and expert negotiation.</p>
         </motion.div>
       </section>
 
@@ -95,8 +95,8 @@ export default function Sell() {
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="card p-7">
                 <div className="mb-4">{item.icon}</div>
-                <h3 className="font-heading text-lg text-navy font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-heading text-xl text-navy font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-500 text-base leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -105,9 +105,9 @@ export default function Sell() {
 
       <section className="py-20 px-6 bg-navy">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block bg-gold/20 border border-gold/40 text-gold text-sm font-semibold px-4 py-1.5 rounded-full mb-6">FREE HOME VALUATION</span>
-          <h2 className="font-heading text-4xl font-bold text-white mb-4">What's Your Home Worth?</h2>
-          <p className="text-white/70 text-lg mb-10">Get a free, data-driven market analysis — no obligation, no pressure.</p>
+          <span className="inline-block bg-gold/20 border border-gold/40 text-gold text-base font-semibold px-4 py-1.5 rounded-full mb-6">FREE HOME VALUATION</span>
+          <h2 className="font-heading text-5xl font-bold text-white mb-4">What's Your Home Worth?</h2>
+          <p className="text-white/70 text-xl mb-10">Get a free, data-driven market analysis — no obligation, no pressure.</p>
           <div className="bg-white rounded-2xl p-8"><ValuationForm /></div>
         </div>
       </section>

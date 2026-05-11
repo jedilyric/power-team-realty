@@ -19,11 +19,11 @@ export default function Listings() {
   })
 
   return (
-    <main className="pt-24 lg:pt-44">
+    <main className="pt-24 lg:pt-44 bg-navy">
       <section className="bg-navy py-16 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="font-heading text-5xl font-bold text-white mb-4">Search Arizona Homes</h1>
-          <p className="text-white/70 text-lg">Browse active listings across the Valley and High Country</p>
+          <h1 className="font-heading text-6xl font-bold text-white mb-4">Search Arizona Homes</h1>
+          <p className="text-white/70 text-xl">Browse active listings across the Valley and High Country</p>
         </motion.div>
       </section>
 
@@ -50,7 +50,7 @@ export default function Listings() {
               <option value="4">4+ Beds</option>
               <option value="5">5+ Beds</option>
             </select>
-            <span className="text-gray-500 text-sm ml-auto">{filtered.length} homes found</span>
+            <span className="text-gray-500 text-base ml-auto">{filtered.length} homes found</span>
           </div>
         </div>
       </section>
@@ -59,7 +59,7 @@ export default function Listings() {
         <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
             <div className="text-center py-20 text-gray-400">
-              <p className="text-xl">No listings match your filters.</p>
+              <p className="text-2xl">No listings match your filters.</p>
               <button onClick={() => { setCity('All'); setMaxPrice(''); setMinBeds('') }} className="btn-primary mt-4">Clear Filters</button>
             </div>
           ) : (
@@ -75,8 +75,8 @@ export default function Listings() {
       </section>
 
       <section className="py-16 px-6 bg-navy text-center">
-        <h2 className="font-heading text-3xl font-bold text-white mb-4">Don't See What You're Looking For?</h2>
-        <p className="text-white/70 mb-8 max-w-xl mx-auto">Set up instant listing alerts and be the first to know when your dream home hits the market.</p>
+        <h2 className="font-heading text-4xl font-bold text-white mb-4">Don't See What You're Looking For?</h2>
+        <p className="text-white/70 text-xl mb-8 max-w-xl mx-auto">Set up instant listing alerts and be the first to know when your dream home hits the market.</p>
         <a href="/contact" className="btn-primary px-12 py-4 text-lg">Get Listing Alerts</a>
       </section>
     </main>
