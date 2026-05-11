@@ -14,7 +14,7 @@ export default function HomeValuation() {
   }
 
   if (success) return (
-    <main className="pt-24 lg:pt-44 min-h-screen flex items-center justify-center bg-cream px-6">
+    <main className="pt-28 min-h-screen flex items-center justify-center bg-cream px-6">
       <div className="text-center max-w-md">
         <CheckCircle size={72} className="text-gold mx-auto mb-6" />
         <h2 className="font-heading text-4xl text-navy font-bold mb-4">You're All Set!</h2>
@@ -24,7 +24,7 @@ export default function HomeValuation() {
   )
 
   return (
-    <main className="pt-24 lg:pt-44 bg-navy">
+    <main className="pt-28 bg-navy">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-heading text-6xl font-bold text-white mb-4">Free Home Valuation</h1>
@@ -32,7 +32,7 @@ export default function HomeValuation() {
         </motion.div>
       </section>
 
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-2xl mx-auto">
           <div className="flex gap-2 mb-10">
             {[1, 2, 3].map(s => (

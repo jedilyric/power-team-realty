@@ -30,9 +30,9 @@ function BuyDropdown({ pathname }) {
 
   return (
     <div className="relative" onMouseEnter={open} onMouseLeave={close}>
-      <button className={`flex items-center gap-1 text-3xl font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
+      <button className={`flex items-center gap-1 text-xl font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
         Buy
-        <ChevronDown size={28} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
+        <ChevronDown size={18} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -90,42 +90,40 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${transparent ? 'bg-transparent' : 'bg-navy shadow-lg'}`}>
+      <div className="w-full px-10 flex items-center justify-between py-5">
 
-      {/* Row 1: Logo + Phone */}
-      <div className="w-full px-10 flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2">
+        {/* Logo — far left */}
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <span className="font-heading text-3xl lg:text-5xl font-bold text-gold">Power Team</span>
           <span className="font-heading text-3xl lg:text-5xl font-light text-white">Realty</span>
         </Link>
 
-        <div className="hidden lg:flex items-center">
-          <a href="tel:9288998945" className="flex items-center gap-3 text-gold text-3xl font-semibold hover:text-white transition-colors">
-            <Phone size={36} />
-            928-899-8945
-          </a>
-        </div>
-
-        <button className="lg:hidden text-white p-2" onClick={() => setOpen(!open)}>
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Row 2: Nav tabs (desktop only) */}
-      <div className="hidden lg:block border-t border-white/10">
-        <nav className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-8 py-3">
-          <Link to="/" className={`text-3xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
-          <Link to="/listings" className={`text-3xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
+        {/* Nav tabs — desktop only, centered between logo and phone */}
+        <nav className="hidden lg:flex items-center gap-4">
+          <Link to="/" className={`text-xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
+          <Link to="/listings" className={`text-xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
           <BuyDropdown pathname={pathname} />
           {links.filter(l => !['/', '/listings'].includes(l.to)).map(l => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-3xl font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
+              className={`text-xl font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
             >
               {l.label}
             </Link>
           ))}
         </nav>
+
+        {/* Phone — far right, desktop only */}
+        <a href="tel:9288998945" className="hidden lg:flex items-center gap-3 text-gold text-3xl font-semibold hover:text-white transition-colors shrink-0">
+          <Phone size={36} />
+          928-899-8945
+        </a>
+
+        {/* Mobile hamburger */}
+        <button className="lg:hidden text-white p-2" onClick={() => setOpen(!open)}>
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
 
       {/* Mobile menu */}
