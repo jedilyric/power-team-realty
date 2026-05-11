@@ -54,38 +54,41 @@ function TestimonialCarousel() {
 
   const t = testimonials[current]
   return (
-    <div className="relative max-w-3xl mx-auto">
-      <button
-        onClick={prev}
-        aria-label="Previous"
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-navy hover:text-gold hover:border-gold transition-colors"
-      >
-        <ChevronLeft size={24} />
-      </button>
+    <div className="max-w-3xl mx-auto text-center">
+      <div className="flex justify-center gap-1 mb-6">
+        {Array(t.rating).fill(0).map((_, i) => <Star key={i} size={20} className="fill-gold text-gold" />)}
+      </div>
 
-      <button
-        onClick={next}
-        aria-label="Next"
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-navy hover:text-gold hover:border-gold transition-colors"
-      >
-        <ChevronRight size={24} />
-      </button>
+      {/* Arrows sit beside the quote text */}
+      <div className="relative">
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-navy hover:text-gold hover:border-gold transition-colors"
+        >
+          <ChevronLeft size={24} />
+        </button>
 
-      <div className="text-center">
-        <div className="flex justify-center gap-1 mb-6">
-          {Array(t.rating).fill(0).map((_, i) => <Star key={i} size={20} className="fill-gold text-gold" />)}
-        </div>
-        <motion.p key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 text-lg leading-relaxed mb-6 italic">
+        <motion.p key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 text-lg leading-relaxed italic">
           "{t.text}"
         </motion.p>
-        <p className="font-semibold text-navy">{t.name}</p>
-        <p className="text-gray-400 text-sm">{t.city}</p>
-        <div className="flex justify-center gap-2 mt-6">
-          {testimonials.map((_, i) => (
-            <button key={i} onClick={() => go(i)}
-              className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-gold w-6' : 'bg-gray-300'}`} />
-          ))}
-        </div>
+
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-navy hover:text-gold hover:border-gold transition-colors"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+
+      <p className="font-semibold text-navy mt-6">{t.name}</p>
+      <p className="text-gray-400 text-sm">{t.city}</p>
+      <div className="flex justify-center gap-2 mt-6">
+        {testimonials.map((_, i) => (
+          <button key={i} onClick={() => go(i)}
+            className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-gold w-6' : 'bg-gray-300'}`} />
+        ))}
       </div>
     </div>
   )
