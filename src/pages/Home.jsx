@@ -103,9 +103,9 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
         </div>
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-24">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-36">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="inline-block bg-gold/20 border border-gold/40 text-gold text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wider">
+            <span className="inline-block bg-gold text-navy text-sm font-bold px-6 py-2 rounded-full mb-6 tracking-wider shadow-lg">
               TOP 1% OF ARIZONA REAL ESTATE AGENTS
             </span>
             <h1 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">

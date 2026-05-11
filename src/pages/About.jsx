@@ -5,7 +5,7 @@ import bryanImg from '../assets/bryan-powers.jpg'
 
 export default function About() {
   return (
-    <main className="pt-24">
+    <main className="pt-36">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-heading text-5xl font-bold text-white mb-4">Meet The Power Team</h1>
@@ -16,7 +16,7 @@ export default function About() {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <img src={bryanImg} alt="Bryan Powers" className="rounded-2xl shadow-xl w-full object-cover h-96 object-top" />
+            <img src={bryanImg} alt="Bryan Powers" className="rounded-2xl shadow-xl w-full object-cover h-96 object-[center_20%]" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <span className="text-gold font-semibold tracking-wider text-base uppercase">Lead Agent & Co-Founder</span>
@@ -35,7 +35,7 @@ export default function About() {
       <section className="py-20 px-6 bg-surface">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:order-2">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Jamie Powers" className="rounded-2xl shadow-xl w-full object-cover h-96 object-top" />
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Jamie Powers" className="rounded-2xl shadow-xl w-full object-cover h-96 object-[center_20%]" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:order-1">
             <span className="text-gold font-semibold tracking-wider text-base uppercase">Lead Agent & Co-Founder</span>

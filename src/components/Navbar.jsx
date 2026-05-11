@@ -30,9 +30,9 @@ function BuyDropdown({ pathname }) {
 
   return (
     <div className="relative" onMouseEnter={open} onMouseLeave={close}>
-      <button className={`flex items-center gap-1 text-base font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
+      <button className={`flex items-center gap-1 text-2xl font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
         Buy
-        <ChevronDown size={16} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
+        <ChevronDown size={24} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -90,30 +90,30 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${transparent ? 'bg-transparent' : 'bg-navy shadow-lg'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-heading text-3xl font-bold text-gold">Power Team</span>
-          <span className="font-heading text-3xl font-light text-white">Realty</span>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-36">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
+          <span className="font-heading text-4xl font-bold text-gold">Power Team</span>
+          <span className="font-heading text-4xl font-light text-white">Realty</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          <Link to="/" className={`text-base font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
-          <Link to="/listings" className={`text-base font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
+        <nav className="hidden lg:flex items-center gap-5">
+          <Link to="/" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
+          <Link to="/listings" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
           <BuyDropdown pathname={pathname} />
           {links.filter(l => !['/', '/listings'].includes(l.to)).map(l => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-base font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
+              className={`text-2xl font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:9288998945" className="flex items-center gap-2 text-gold text-base font-semibold hover:text-white transition-colors">
-            <Phone size={20} />
+        <div className="hidden lg:flex items-center gap-4 shrink-0">
+          <a href="tel:9288998945" className="flex items-center gap-2 text-gold text-2xl font-semibold hover:text-white transition-colors">
+            <Phone size={30} />
             928-899-8945
           </a>
         </div>
@@ -132,24 +132,24 @@ export default function Navbar() {
             className="lg:hidden bg-navy border-t border-white/10"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
-              <Link to="/" className={`text-base font-medium py-2.5 border-b border-white/10 ${pathname === '/' ? 'text-gold' : 'text-white'}`}>Home</Link>
-              <Link to="/listings" className={`text-base font-medium py-2.5 border-b border-white/10 ${pathname === '/listings' ? 'text-gold' : 'text-white'}`}>Search Homes</Link>
+              <Link to="/" className={`text-2xl font-medium py-3 border-b border-white/10 ${pathname === '/' ? 'text-gold' : 'text-white'}`}>Home</Link>
+              <Link to="/listings" className={`text-2xl font-medium py-3 border-b border-white/10 ${pathname === '/listings' ? 'text-gold' : 'text-white'}`}>Search Homes</Link>
 
               {/* Buy mobile accordion */}
               <div className="border-b border-white/10">
                 <button
                   onClick={() => setBuyMobileOpen(!buyMobileOpen)}
-                  className={`w-full flex items-center justify-between text-base font-medium py-2.5 ${pathname === '/buy' ? 'text-gold' : 'text-white'}`}
+                  className={`w-full flex items-center justify-between text-2xl font-medium py-3 ${pathname === '/buy' ? 'text-gold' : 'text-white'}`}
                 >
                   Buy
-                  <ChevronDown size={16} className={`transition-transform ${buyMobileOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={24} className={`transition-transform ${buyMobileOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
                   {buyMobileOpen && (
                     <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                       <div className="pl-4 pb-3 flex flex-col gap-1">
                         {buyDropdownItems.map(item => (
-                          <Link key={item.label} to={item.to} className="flex items-center gap-3 py-2 text-white/80 hover:text-gold text-sm">
+                          <Link key={item.label} to={item.to} className="flex items-center gap-3 py-2 text-white/80 hover:text-gold text-xl">
                             {item.icon}
                             <span>{item.label}</span>
                           </Link>
@@ -161,12 +161,12 @@ export default function Navbar() {
               </div>
 
               {links.filter(l => !['/', '/listings'].includes(l.to)).map(l => (
-                <Link key={l.to} to={l.to} className={`text-base font-medium py-2.5 border-b border-white/10 ${pathname === l.to ? 'text-gold' : 'text-white'}`}>
+                <Link key={l.to} to={l.to} className={`text-2xl font-medium py-3 border-b border-white/10 ${pathname === l.to ? 'text-gold' : 'text-white'}`}>
                   {l.label}
                 </Link>
               ))}
-              <a href="tel:9288998945" className="flex items-center gap-2 text-gold font-semibold py-2.5 text-lg">
-                <Phone size={20} /> 928-899-8945
+              <a href="tel:9288998945" className="flex items-center gap-2 text-gold font-semibold py-3 text-2xl">
+                <Phone size={30} /> 928-899-8945
               </a>
             </div>
           </motion.div>
