@@ -30,9 +30,9 @@ function BuyDropdown({ pathname }) {
 
   return (
     <div className="relative" onMouseEnter={open} onMouseLeave={close}>
-      <button className={`flex items-center gap-1 text-xl font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
+      <button className={`flex items-center gap-1 text-2xl font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
         Buy
-        <ChevronDown size={18} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
+        <ChevronDown size={20} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -99,15 +99,15 @@ export default function Navbar() {
         </Link>
 
         {/* Nav tabs — desktop only, centered between logo and phone */}
-        <nav className="hidden lg:flex items-center gap-4">
-          <Link to="/" className={`text-xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
-          <Link to="/listings" className={`text-xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
+        <nav className="hidden lg:flex items-center gap-7">
+          <Link to="/" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
+          <Link to="/listings" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
           <BuyDropdown pathname={pathname} />
           {links.filter(l => !['/', '/listings'].includes(l.to)).map(l => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-xl font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
+              className={`text-2xl font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
             >
               {l.label}
             </Link>
