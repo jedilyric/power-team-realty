@@ -59,14 +59,14 @@ export default function Footer() {
                 <MapPin size={16} className="mt-0.5 shrink-0" />
                 <span>2133 E Warner Rd Suite 105<br />Tempe, AZ 85284</span>
               </div>
-              <p className="text-white/40 text-xs">West USA Realty</p>
+              <p className="text-white/40 text-sm">West USA Realty</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-xs">© {new Date().getFullYear()} Power Team Realty at West USA Realty. All rights reserved.</p>
-          <div className="flex items-center gap-6 text-white/40 text-xs">
+          <p className="text-white/40 text-sm">© {new Date().getFullYear()} Power Team Realty at West USA Realty. All rights reserved.</p>
+          <div className="flex items-center gap-6 text-white/40 text-sm">
             <span>🏠 Equal Housing Opportunity</span>
             <span>Arizona License</span>
           </div>

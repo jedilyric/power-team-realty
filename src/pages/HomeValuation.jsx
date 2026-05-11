@@ -14,7 +14,7 @@ export default function HomeValuation() {
   }
 
   if (success) return (
-    <main className="pt-20 min-h-screen flex items-center justify-center bg-cream px-6">
+    <main className="pt-24 min-h-screen flex items-center justify-center bg-cream px-6">
       <div className="text-center max-w-md">
         <CheckCircle size={72} className="text-gold mx-auto mb-6" />
         <h2 className="font-heading text-4xl text-navy font-bold mb-4">You're All Set!</h2>
@@ -24,7 +24,7 @@ export default function HomeValuation() {
   )
 
   return (
-    <main className="pt-20">
+    <main className="pt-24">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-heading text-5xl font-bold text-white mb-4">Free Home Valuation</h1>
@@ -38,7 +38,7 @@ export default function HomeValuation() {
             {[1, 2, 3].map(s => (
               <div key={s} className="flex-1">
                 <div className={`h-2 rounded-full transition-all ${step >= s ? 'bg-gold' : 'bg-gray-200'}`} />
-                <p className={`text-xs mt-1 font-medium ${step >= s ? 'text-gold' : 'text-gray-400'}`}>
+                <p className={`text-sm mt-1 font-medium ${step >= s ? 'text-gold' : 'text-gray-400'}`}>
                   {['Property Address', 'Home Details', 'Your Info'][s - 1]}
                 </p>
               </div>
@@ -103,7 +103,7 @@ export default function HomeValuation() {
                   <input name="email" type="email" required value={form.email} onChange={handleChange} placeholder="Email Address" className="input-field" />
                   <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number (optional)" className="input-field" />
                   {error && <p className="text-red-500 text-sm">{error}</p>}
-                  <p className="text-xs text-gray-400">By submitting, you agree to be contacted by Power Team Realty. We respect your privacy.</p>
+                  <p className="text-sm text-gray-400">By submitting, you agree to be contacted by Power Team Realty. We respect your privacy.</p>
                   <div className="flex gap-3">
                     <button type="button" onClick={() => setStep(2)} className="btn-navy flex-1 py-3">← Back</button>
                     <button type="submit" disabled={loading} className="btn-primary flex-1 py-3 flex items-center justify-center gap-2">

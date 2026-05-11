@@ -4,7 +4,7 @@ import ContactForm from '../components/ContactForm'
 
 export default function Contact() {
   return (
-    <main className="pt-20">
+    <main className="pt-24">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-heading text-5xl font-bold text-white mb-4">Get In Touch</h1>
@@ -34,7 +34,7 @@ export default function Contact() {
                   <div key={i} className="flex items-start gap-4 bg-surface rounded-xl p-4">
                     <div className="mt-0.5">{item.icon}</div>
                     <div>
-                      <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-0.5">{item.label}</p>
+                      <p className="text-sm text-gray-400 font-semibold uppercase tracking-wider mb-0.5">{item.label}</p>
                       {item.href
                         ? <a href={item.href} className="text-navy font-semibold hover:text-gold transition-colors">{item.value}</a>
                         : <p className="text-navy font-semibold">{item.value}</p>

@@ -26,7 +26,7 @@ function FAQ({ q, a }) {
 
 export default function Buy() {
   return (
-    <main className="pt-20">
+    <main className="pt-24">
       <section className="bg-navy py-20 px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-heading text-5xl font-bold text-white mb-4">Buy a Home in Arizona</h1>

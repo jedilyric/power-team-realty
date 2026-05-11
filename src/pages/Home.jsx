@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { Search, Star, Award, TrendingUp, Heart, Shield, ChevronDown } from 'lucide-react'
+import bryanImg from '../assets/bryan-powers.jpg'
+import heroImg from '../assets/hero.jpg'
 import ListingCard from '../components/ListingCard'
 import { mockListings, testimonials } from '../data/mockListings'
 import { useEmailJS } from '../hooks/useEmailJS'
@@ -95,13 +97,13 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1464146072230-91cabc968266?w=1600&q=80"
+            src={heroImg}
             alt="Arizona home"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
         </div>
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-24">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block bg-gold/20 border border-gold/40 text-gold text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wider">
               TOP 1% OF ARIZONA REAL ESTATE AGENTS
@@ -205,7 +207,7 @@ export default function Home() {
               {
                 name: 'Bryan Powers',
                 role: 'Lead Agent & Co-Founder',
-                image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
+                image: bryanImg,
                 bio: "Bryan brings over 15 years of Arizona real estate expertise, specializing in investment properties and luxury homes across the Valley and High Country. As a multi-million dollar producer and Diamond Award recipient, he's known for sharp negotiation and relentless advocacy for his clients.",
               },
               {
