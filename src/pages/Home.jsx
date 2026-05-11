@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
-import { Search, Star, Award, TrendingUp, Heart, Shield, ChevronDown } from 'lucide-react'
+import { Search, Star, Award, TrendingUp, Heart, Shield, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import bryanImg from '../assets/bryan-powers.jpg'
 import heroImg from '../assets/hero.jpg'
 import ListingCard from '../components/ListingCard'
@@ -32,26 +32,60 @@ function AnimatedCounter({ target, suffix = '' }) {
 
 function TestimonialCarousel() {
   const [current, setCurrent] = useState(0)
+  const timerRef = useRef(null)
+
+  const resetTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => setCurrent(c => (c + 1) % testimonials.length), 5000)
+  }
+
   useEffect(() => {
-    const t = setInterval(() => setCurrent(c => (c + 1) % testimonials.length), 5000)
-    return () => clearInterval(t)
+    resetTimer()
+    return () => clearInterval(timerRef.current)
   }, [])
+
+  const go = (idx) => {
+    setCurrent(idx)
+    resetTimer()
+  }
+
+  const prev = () => go((current - 1 + testimonials.length) % testimonials.length)
+  const next = () => go((current + 1) % testimonials.length)
+
   const t = testimonials[current]
   return (
-    <div className="max-w-3xl mx-auto text-center">
-      <div className="flex justify-center gap-1 mb-6">
-        {Array(t.rating).fill(0).map((_, i) => <Star key={i} size={20} className="fill-gold text-gold" />)}
-      </div>
-      <motion.p key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 text-lg leading-relaxed mb-6 italic">
-        "{t.text}"
-      </motion.p>
-      <p className="font-semibold text-navy">{t.name}</p>
-      <p className="text-gray-400 text-sm">{t.city}</p>
-      <div className="flex justify-center gap-2 mt-6">
-        {testimonials.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)}
-            className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-gold w-6' : 'bg-gray-300'}`} />
-        ))}
+    <div className="relative max-w-3xl mx-auto">
+      <button
+        onClick={prev}
+        aria-label="Previous"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-navy hover:text-gold hover:border-gold transition-colors"
+      >
+        <ChevronLeft size={24} />
+      </button>
+
+      <button
+        onClick={next}
+        aria-label="Next"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-navy hover:text-gold hover:border-gold transition-colors"
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      <div className="text-center">
+        <div className="flex justify-center gap-1 mb-6">
+          {Array(t.rating).fill(0).map((_, i) => <Star key={i} size={20} className="fill-gold text-gold" />)}
+        </div>
+        <motion.p key={current} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 text-lg leading-relaxed mb-6 italic">
+          "{t.text}"
+        </motion.p>
+        <p className="font-semibold text-navy">{t.name}</p>
+        <p className="text-gray-400 text-sm">{t.city}</p>
+        <div className="flex justify-center gap-2 mt-6">
+          {testimonials.map((_, i) => (
+            <button key={i} onClick={() => go(i)}
+              className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-gold w-6' : 'bg-gray-300'}`} />
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -103,7 +137,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
         </div>
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-36">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-36 lg:pt-44">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block bg-gold text-navy text-sm font-bold px-6 py-2 rounded-full mb-6 tracking-wider shadow-lg">
               TOP 1% OF ARIZONA REAL ESTATE AGENTS

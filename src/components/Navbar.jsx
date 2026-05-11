@@ -30,9 +30,9 @@ function BuyDropdown({ pathname }) {
 
   return (
     <div className="relative" onMouseEnter={open} onMouseLeave={close}>
-      <button className={`flex items-center gap-1 text-2xl font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
+      <button className={`flex items-center gap-1 text-3xl font-medium transition-colors duration-200 ${isActive ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>
         Buy
-        <ChevronDown size={24} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
+        <ChevronDown size={28} className={`transition-transform duration-200 ${hovered ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -42,7 +42,7 @@ function BuyDropdown({ pathname }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.97 }}
             transition={{ duration: 0.18 }}
-            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
           >
             <div className="p-2">
               <p className="text-sm font-bold text-gray-400 uppercase tracking-widest px-3 pt-2 pb-1">Buying a Home</p>
@@ -90,39 +90,45 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${transparent ? 'bg-transparent' : 'bg-navy shadow-lg'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-36">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="font-heading text-4xl font-bold text-gold">Power Team</span>
-          <span className="font-heading text-4xl font-light text-white">Realty</span>
+
+      {/* Row 1: Logo + Phone */}
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between py-4">
+        <Link to="/" className="flex items-center gap-2">
+          <span className="font-heading text-3xl lg:text-5xl font-bold text-gold">Power Team</span>
+          <span className="font-heading text-3xl lg:text-5xl font-light text-white">Realty</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-5">
-          <Link to="/" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
-          <Link to="/listings" className={`text-2xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
-          <BuyDropdown pathname={pathname} />
-          {links.filter(l => !['/', '/listings'].includes(l.to)).map(l => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className={`text-2xl font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden lg:flex items-center gap-4 shrink-0">
-          <a href="tel:9288998945" className="flex items-center gap-2 text-gold text-2xl font-semibold hover:text-white transition-colors">
-            <Phone size={30} />
+        <div className="hidden lg:flex items-center">
+          <a href="tel:9288998945" className="flex items-center gap-3 text-gold text-3xl font-semibold hover:text-white transition-colors">
+            <Phone size={36} />
             928-899-8945
           </a>
         </div>
 
         <button className="lg:hidden text-white p-2" onClick={() => setOpen(!open)}>
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
+      {/* Row 2: Nav tabs (desktop only) */}
+      <div className="hidden lg:block border-t border-white/10">
+        <nav className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-8 py-3">
+          <Link to="/" className={`text-3xl font-medium transition-colors duration-200 ${pathname === '/' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Home</Link>
+          <Link to="/listings" className={`text-3xl font-medium transition-colors duration-200 ${pathname === '/listings' ? 'text-gold' : 'text-white/90 hover:text-gold'}`}>Search Homes</Link>
+          <BuyDropdown pathname={pathname} />
+          {links.filter(l => !['/', '/listings'].includes(l.to)).map(l => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`text-3xl font-medium transition-colors duration-200 ${pathname === l.to ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -135,7 +141,6 @@ export default function Navbar() {
               <Link to="/" className={`text-2xl font-medium py-3 border-b border-white/10 ${pathname === '/' ? 'text-gold' : 'text-white'}`}>Home</Link>
               <Link to="/listings" className={`text-2xl font-medium py-3 border-b border-white/10 ${pathname === '/listings' ? 'text-gold' : 'text-white'}`}>Search Homes</Link>
 
-              {/* Buy mobile accordion */}
               <div className="border-b border-white/10">
                 <button
                   onClick={() => setBuyMobileOpen(!buyMobileOpen)}
